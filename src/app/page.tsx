@@ -1,10 +1,15 @@
-import { Button } from '@/components/ui/button'
+import { SectionFeaturedProducts } from './section-featured-products'
+import { SectionHero } from './section-hero'
+import { SectionSpecialsOffers } from './section-specials-offers'
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="text-xl">Ecommerce app</main>
-      <Button>Click me</Button>
+    <div className="min-h-screen text-gray-800 font-sans">
+      <main className="text-xl">
+        <SectionHero />
+        <SectionFeaturedProducts />
+        <SectionSpecialsOffers />
+      </main>
     </div>
   )
 }

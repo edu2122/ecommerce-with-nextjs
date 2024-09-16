@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { inter } from './ui/fonts'
+import { Footer } from '@/app/footer'
+import { ThemeProvider } from '@/components/theme-provider'
+import { Header } from '@/app/header'
 
 export const metadata: Metadata = {
   title: 'Ecommerce-edu app - Next.js',
@@ -14,7 +17,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${inter.className} antialiased`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <header className="sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-sm">
+            <Header />
+          </header>
+          {children}
+          <Footer />
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
