@@ -1,13 +1,13 @@
 export function SectionSpecialsOffers() {
   return (
-    <section className="bg-gray-50 dark:bg-black py-16 px-4">
+    <section className="bg-white dark:bg-black py-16 px-4">
       <div className="container mx-auto">
         <h2 className="text-4xl text-black dark:text-white/90 font-bold mb-8 text-center">
           Special Offers
         </h2>
         <div className="relative">
           <div className="flex overflow-x-auto space-x-6 pb-4">
-            {[1, 2, 3, 4, 5].map((offer) => (
+            {[1, 2, 3, 4, 5, 6, 7].map((offer) => (
               <div key={offer} className="flex-none w-64 group">
                 <div className="aspect-w-1 aspect-h-1 mb-4 rounded-lg overflow-hidden bg-gray-100 dark:bg-white/5">
                   <img

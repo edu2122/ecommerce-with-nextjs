@@ -23,11 +23,10 @@ export function SectionFeaturedProducts() {
               <h3 className="text-lg font-medium text-dark   dark:text-white">
                 Minimal Product {product}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-lg mb-2">$99.99</p>
-              <Button
-                variant="outline"
-                className="w-full bg-black text-white hover:opacity-80 dark:bg-white dark:text-black dark:border-gray-500 dark:hover:opacity-90 transition-opacity"
-              >
+              <p className="text-gray-600 dark:text-gray-400 text-lg mb-2">
+                $99.99
+              </p>
+              <Button variant="outline" className="mt-2 w-full dark:text-white">
                 Add to Cart
               </Button>
             </div>
