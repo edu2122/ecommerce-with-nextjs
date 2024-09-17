@@ -24,7 +24,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <header className="sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-sm">
+          <header className="sticky top-0 z-50 bg-white dark:bg-black/60 border-b shadow-sm">
             <Header />
           </header>
           {children}

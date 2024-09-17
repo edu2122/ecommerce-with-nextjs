@@ -2,9 +2,9 @@ import { Button } from '@/components/ui/button'
 
 export function SectionHero() {
   return (
-    <section className="bg-gray-50 dark:bg-gray-800 py-20 px-4">
+    <section className="bg-white dark:bg-black/80 py-20 px-4">
       <div className="container mx-auto text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 dark:text-white">
+        <h1 className="text-4xl md:text-5xl text-black font-bold mb-6 dark:text-white/90">
           Welcome to Minimal Elegance
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">

@@ -10,26 +10,26 @@ export function Header() {
     <div className="container mx-auto px-4 py-4 flex items-center justify-between">
       <Link
         href="/"
-        className="text-2xl font-semibold text-gray-800 dark:text-gray-200"
+        className="text-2xl font-semibold text-black/80 dark:text-gray-200"
       >
         MinimalStore
       </Link>
-      <nav className="hidden md:flex space-x-6">
+      <nav className="hidden md:flex space-x-6 ">
         <Link
           href="/"
-          className="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 transition-colors"
+          className="text-black/80 font-bold hover:text-black/60 dark:text-gray-300 dark:hover:text-gray-100 transition-colors"
         >
           Home
         </Link>
         <Link
           href="/store"
-          className="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 transition-colors"
+          className="text-black/80 font-bold hover:text-black/60 dark:text-gray-300 dark:hover:text-gray-100 transition-colors"
         >
           Store
         </Link>
         <Link
           href="/deals"
-          className="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 transition-colors"
+          className="text-black/80 font-bold hover:text-black/60 dark:text-gray-300 dark:hover:text-gray-100 transition-colors"
         >
           Deals
         </Link>
