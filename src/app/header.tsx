@@ -36,15 +36,29 @@ export function Header() {
       </nav>
       <div className="flex items-center space-x-4">
         <ModeToggle />
-        <Button variant="ghost" size="icon" className='text-slate-800 dark:text-white'>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="text-slate-800 dark:text-white"
+        >
           <Search className="h-5 w-5" />
           <span className="sr-only">Search</span>
         </Button>
-        <Button variant="ghost" size="icon" className='text-slate-800 dark:text-white'>
-          <ShoppingCart className="h-5 w-5" />
-          <span className="sr-only">Cart</span>
-        </Button>
-        <Button variant="ghost" size="icon" className='text-slate-800 dark:text-white'>
+        <Link href="/cart">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="text-slate-800 dark:text-white"
+          >
+            <ShoppingCart className="h-5 w-5" />
+            <span className="sr-only">Cart</span>
+          </Button>
+        </Link>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="text-slate-800 dark:text-white"
+        >
           <User className="h-5 w-5" />
           <span className="sr-only">Profile</span>
         </Button>
