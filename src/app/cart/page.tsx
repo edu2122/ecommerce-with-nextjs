@@ -53,15 +53,15 @@ export default function CartPage() {
                     </p>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Button variant="outline" size="icon" className='w-7 h-7'>
+                    <Button variant="outline" size="icon" className="w-7 h-7">
                       <Minus className="h-4 w-4" />
                     </Button>
                     <span>{item.quantity}</span>
-                    <Button variant="outline" size="icon" className='w-7 h-7'>
+                    <Button variant="outline" size="icon" className="w-7 h-7">
                       <Plus className="h-4 w-4" />
                     </Button>
                   </div>
-                  <Button variant="ghost" size="icon" className='w-7 h-7'>
+                  <Button variant="ghost" size="icon" className="w-7 h-7">
                     <Trash className="h-5 w-5 dark:text-white text-black" />
                   </Button>
                 </CardContent>
