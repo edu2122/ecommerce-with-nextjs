@@ -3,7 +3,7 @@ import { Skeleton } from './ui/skeleton'
 
 export function CartItemSkeleton() {
   return (
-    <Card className="dark:bg-gray-900 dark:border-white/10">
+    <Card className="bg-gray-200 dark:bg-white/5">
       <CardContent className="p-4 flex items-center space-x-4">
         <Skeleton className="w-20 h-20 rounded-md" />
         <div className="flex-grow space-y-2">
@@ -23,7 +23,7 @@ export function CartItemSkeleton() {
 
 export function OrderSummarySkeleton() {
   return (
-    <Card className="dark:bg-gray-900 dark:border-white/10">
+    <Card className="bg-gray-200 dark:bg-white/5">
       <CardHeader>
         <Skeleton className="h-6 w-1/2" />
       </CardHeader>
