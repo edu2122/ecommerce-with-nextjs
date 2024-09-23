@@ -49,6 +49,24 @@ export function OrderSummarySkeleton() {
   )
 }
 
+export function ProductsStoreSkeleton() {
+  return (
+    <Card className="bg-gray-200 dark:bg-white/5">
+      <CardContent className="space-y-4 p-6">
+        <div>
+          <Skeleton className="w-full h-52" />
+        </div>
+        <div className=''>
+          <Skeleton className='w-full h-3'/>
+        </div>
+      </CardContent>
+      <CardFooter className="flex flex-col space-y-2">
+        <Skeleton className="h-10 w-full" />
+      </CardFooter>
+    </Card>
+  )
+}
+
 export function RecommendedProductSkeleton() {
   return (
     <div className="flex-none w-64">

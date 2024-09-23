@@ -1,10 +1,10 @@
-// import { Moon, Sun, Search, ShoppingCart, X } from 'lucide-react'
-
 import ProductsStore from '@/components/products-store'
 import AsideCart from '@/components/aside-cart'
 import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Slider } from '@/components/ui/slider'
+import { Suspense } from 'react'
+import { ProductsStoreSkeleton } from '@/components/skeletons'
 
 const categories = ['Clothing', 'Shoes', 'Accessories', 'Home', 'Beauty']
 
@@ -49,7 +49,18 @@ export default function StorePage() {
           {/* Product Grid */}
           <div className="flex-1">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <ProductsStore />
+              <Suspense
+                fallback={
+                  <>
+                    <ProductsStoreSkeleton />
+                    <ProductsStoreSkeleton />
+                    <ProductsStoreSkeleton />
+                    <ProductsStoreSkeleton />
+                  </>
+                }
+              >
+                <ProductsStore />
+              </Suspense>
             </div>
           </div>
         </div>
