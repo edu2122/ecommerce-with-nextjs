@@ -4,6 +4,7 @@ import { inter } from './ui/fonts'
 import { Footer } from '@/app/footer'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Header } from '@/app/header'
+import { Toaster } from '@/components/ui/toaster'
 
 export const metadata: Metadata = {
   title: 'Ecommerce-edu app - Next.js',
@@ -29,6 +30,7 @@ export default function RootLayout({
           </header>
           {children}
           <Footer />
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

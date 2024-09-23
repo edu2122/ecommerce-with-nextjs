@@ -8,6 +8,7 @@ export async function ProductsList() {
     .from('products')
     .select('*')
     .order('id', { ascending: true })
+  console.log(products)
   if (products === null) return
   const randomsProducts = products.sort(() => Math.random() - 0.5)
   const productsLimited = randomsProducts.slice(0, 4)
