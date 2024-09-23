@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 export function SectionHero() {
   return (
@@ -11,7 +12,7 @@ export function SectionHero() {
           Discover our curated collection of timeless pieces
         </p>
         <Button className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors">
-          Explore Store
+          <Link href="/store">Explore Store</Link>
         </Button>
       </div>
     </section>
