@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import { Button } from '../components/ui/button'
-import { Search } from '@/app/icons/Search'
-import { ShoppingCart } from '@/app/icons/shopping-cart'
-import { User } from '@/app/icons/user'
+import { Search, ShoppingCart, User } from '@/components/icons'
 import { ModeToggle } from '../components/mode-toggle'
 
 export function Header() {

@@ -1,8 +1,7 @@
-import { Minus } from '@/app/icons/minus'
 import { Button } from './ui/button'
 import { Card, CardContent } from './ui/card'
-import { Plus } from '@/app/icons/plus'
-import { Trash } from '@/app/icons/trash'
+
+import { Minus, Plus, Trash } from '@/components/icons'
 import { createClient } from '@/utils/supabase/client'
 
 export default async function CartItems() {

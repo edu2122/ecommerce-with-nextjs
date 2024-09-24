@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import { Button } from '../components/ui/button'
-import { Instagram } from '@/app/icons/Instagram'
-import { Facebook } from '@/app/icons/Facebook'
-import { Twitter } from '@/app/icons/Twitter'
+import { Instagram, Facebook, Twitter } from '@/components/icons'
 
 export function Footer() {
   return (
@@ -28,26 +26,26 @@ export function Footer() {
             className="text-black dark:text-white/90 hover:scale-125 hover:opacity-70 transition-all dark:hover:text-gray-200"
           >
             <span className="sr-only">Facebook</span>
-            <Facebook className='size-8'/>
+            <Facebook className="size-8" />
           </Link>
           <Link
             href="#"
             className="text-black dark:text-white/90 hover:scale-125 hover:opacity-70 transition-all dark:hover:text-gray-200"
           >
             <span className="sr-only">Instagram</span>
-            <Instagram className='size-8'/>
+            <Instagram className="size-8" />
           </Link>
           <Link
             href="#"
             className="text-black dark:text-white/90 hover:scale-125 hover:opacity-70 transition-all dark:hover:text-gray-200"
           >
             <span className="sr-only">Twitter</span>
-            <Twitter className='size-8'/>
+            <Twitter className="size-8" />
           </Link>
         </div>
         <div className="flex items-center">
           {/* <Input type="email" placeholder="Enter your email" className="mr-2" /> */}
-          <Button className='hover:scale-105 transition-all'>Subscribe</Button>
+          <Button className="hover:scale-105 transition-all">Subscribe</Button>
         </div>
       </div>
     </footer>

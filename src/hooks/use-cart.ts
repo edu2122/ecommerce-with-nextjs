@@ -35,12 +35,17 @@ export const useCart = create(
       removeItem: (id: number) => {
         set({ items: [...get().items.filter((item) => item.id !== id)] })
         toast({
-          title: 'Item removed from cart'
+          title: 'Item removed from cart',
+          variant: 'destructive'
         })
       },
       clearCart: () => {
         set({
           items: []
+        })
+        toast({
+          title: 'Cleared cart',
+          variant: 'destructive'
         })
       }
     }),

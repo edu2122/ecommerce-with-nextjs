@@ -1,5 +1,6 @@
 import { createClient } from '@/utils/supabase/client'
-import { Button } from './ui/button'
+import { ButtonAddToCart } from './cart-buttons'
+import { type ProductType } from '@/types/product'
 
 export async function ProductsList() {
   await new Promise((resolve) => setTimeout(resolve, 2000))
@@ -8,13 +9,12 @@ export async function ProductsList() {
     .from('products')
     .select('*')
     .order('id', { ascending: true })
-  console.log(products)
   if (products === null) return
   const randomsProducts = products.sort(() => Math.random() - 0.5)
   const productsLimited = randomsProducts.slice(0, 4)
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {productsLimited.map((product) => {
+      {productsLimited.map((product: ProductType) => {
         const { id, name, price, image_url: imageUrl } = product
         return (
           <div key={id} className="group w-80">
@@ -31,9 +31,7 @@ export async function ProductsList() {
             <p className="text-gray-600 dark:text-gray-400 text-lg mb-2">
               ${price}
             </p>
-            <Button variant="outline" className="mt-2 w-full dark:text-white">
-              Add to Cart
-            </Button>
+            <ButtonAddToCart product={product} />
           </div>
         )
       })}
