@@ -7,15 +7,19 @@ import { createClient } from '@/utils/supabase/client'
 export default async function CartItems() {
   await new Promise((resolve) => setTimeout(resolve, 2000))
   const supabase = createClient()
-  const { data: order_items } = await supabase.from('order_items').select(
-    `*,
-    product_id:products(name, image_url)
-    `
-  )
-  if (order_items === null) return
+  // // const { data: order_cart } = await supabase.from('order_cart').select(
+  // //   `*,
+  // //   product_id:products(name, image_url)
+  // //   `
+  // // )
+  const { data: order_cart } = await supabase
+    .from('order_cart')
+    .select('*, product_id:products(name, image_url)')
+  console.log(order_cart)
+  if (order_cart === null) return
   return (
     <>
-      {order_items.map(({ id, price, quantity, product_id }) => (
+      {order_cart.map(({ id, price, quantity, product_id }) => (
         <Card key={id}>
           <CardContent className="p-4 flex items-center space-x-4">
             <div className="w-20 h-20 bg-gray-200 dark:bg-white/5 rounded-md">
