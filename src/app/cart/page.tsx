@@ -9,7 +9,7 @@ export default function CartPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-black text-gray-800 dark:text-gray-200 font-sans transition-colors duration-300">
       <main className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-8">Your Cart 444</h1>
+        <h1 className="text-3xl font-bold mb-8">Your Cart</h1>
 
         <div className="grid md:grid-cols-3 gap-8">
           {/* Cart Items */}

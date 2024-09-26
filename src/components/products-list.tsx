@@ -25,7 +25,7 @@ export async function ProductsList() {
               />
             </div>
             <h3 className="text-lg font-medium whitespace-nowrap overflow-hidden text-ellipsis hover:text-pretty text-dark dark:text-white">
-              {`${name}`}
+              {name}
             </h3>
             <p className="text-gray-600 dark:text-gray-400 text-lg mb-2">
               ${price}

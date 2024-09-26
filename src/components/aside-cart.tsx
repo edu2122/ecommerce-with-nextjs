@@ -8,11 +8,12 @@ import {
 } from '@/components/ui/sheet'
 import { Button } from './ui/button'
 import { type ProductType } from '@/types/product'
-import { XIcon, ShoppingCart } from '@/components/icons'
+import { ShoppingCart } from '@/components/icons'
 import { useCart } from '@/hooks/use-cart'
+import { ButtonClearCart, ButtonRemoveFromCart } from './cart-buttons'
 
 export default function AsideCart() {
-  const { items: cartItems, removeItem, clearCart } = useCart()
+  const { items: cartItems } = useCart()
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -31,9 +32,7 @@ export default function AsideCart() {
                 <img
                   src={item.image_url}
                   alt={item.name}
-                  width={50}
-                  height={50}
-                  className="rounded"
+                  className="rounded size-14"
                 />
                 <div>
                   <p className="font-medium">{item.name}</p>
@@ -42,15 +41,7 @@ export default function AsideCart() {
                   </p>
                 </div>
               </div>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => {
-                  removeItem(item.id)
-                }}
-              >
-                <XIcon className="h-4 w-4" />
-              </Button>
+              <ButtonRemoveFromCart id={item.id} />
             </div>
           ))}
           {cartItems.length === 0 && <p>Your cart is empty</p>}
@@ -66,15 +57,7 @@ export default function AsideCart() {
                   .toFixed(2)}
                 )
               </Button>
-              <Button
-                className="w-full mt-4"
-                variant="destructive"
-                onClick={() => {
-                  clearCart()
-                }}
-              >
-                Clear Cart
-              </Button>
+              <ButtonClearCart />
             </>
           )}
         </div>

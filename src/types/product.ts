@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 export type ProductType = {
-  id: number
+  id: string
   created_at: string
   name: string
   description: string
