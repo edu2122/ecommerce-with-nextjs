@@ -1,13 +1,13 @@
-import { createClient } from '@/utils/supabase/client'
 import { ButtonAddToCart } from './cart-buttons'
 import { type ProductType } from '@/types/product'
+import { useSupabase } from '@/hooks/use-supabase'
 
 export async function ProductsList() {
   await new Promise((resolve) => setTimeout(resolve, 2000))
-  const supabase = createClient()
-  const { data: products } = await supabase
-    .from('products')
-    .select('*')
+  const { getProducts } = await useSupabase()
+  const products = await getProducts()
+  if (products === null) return
+  console.log(products[0])
   if (products === null) return
   const randomsProducts = products.sort(() => Math.random() - 0.5)
   const productsLimited = randomsProducts.slice(0, 4)
@@ -40,8 +40,8 @@ export async function ProductsList() {
 
 export async function ProductsOffer() {
   await new Promise((resolve) => setTimeout(resolve, 2000))
-  const supabase = createClient()
-  const { data: products } = await supabase.from('products').select('*')
+  const { getProducts } = await useSupabase()
+  const products = await getProducts()
   if (products === null) return
   const randomsProducts = products.sort(() => Math.random() - 0.5)
   const productsLimited = randomsProducts.slice(0, 7)

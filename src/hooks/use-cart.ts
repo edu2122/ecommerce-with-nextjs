@@ -22,18 +22,12 @@ export const useCart = create(
     (set, get) => ({
       items: [],
       addItem: (data: ProductType) => {
-        const currentItems = get().items
-        const existingItem = currentItems.find((item) => item.id === data.id)
+        const { items } = get()
         // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-        if (existingItem) {
-          return toast({
-            title: 'Item already in cart',
-            variant: 'destructive'
-          })
-        }
         set({
-          items: [...get().items, data]
+          items: [...items, { ...data, quantity: 1 }]
         })
+
         toast({
           title: 'Item added to cart'
         })

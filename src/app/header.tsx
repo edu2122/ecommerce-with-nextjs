@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Button } from '../components/ui/button'
 import { Search, ShoppingCart, User } from '@/components/icons'
 import { ModeToggle } from '../components/mode-toggle'
+import AsideCart from '@/components/aside-cart'
 
 export function Header() {
   return (
@@ -42,7 +43,7 @@ export function Header() {
           <Search className="h-5 w-5" />
           <span className="sr-only">Search</span>
         </Button>
-        <Link href="/cart">
+        {/* <Link href="/cart">
           <Button
             variant="ghost"
             size="icon"
@@ -51,7 +52,8 @@ export function Header() {
             <ShoppingCart className="h-5 w-5" />
             <span className="sr-only">Cart</span>
           </Button>
-        </Link>
+        </Link> */}
+        <AsideCart/>
         <Button
           variant="ghost"
           size="icon"

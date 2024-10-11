@@ -21,11 +21,11 @@ export default function AsideCart() {
           <ShoppingCart className="h-5 w-5" />
         </Button>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="w-full sm:max-w-md">
         <SheetHeader>
           <SheetTitle>Your Cart</SheetTitle>
         </SheetHeader>
-        <div className="mt-4 space-y-4">
+        <div className="mt-4 space-y-4 max-h-[calc(100vh-200px)] overflow-y-auto pr-4">
           {cartItems.map((item: ProductType) => (
             <div key={item.id} className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
@@ -45,10 +45,11 @@ export default function AsideCart() {
             </div>
           ))}
           {cartItems.length === 0 && <p>Your cart is empty</p>}
+        </div>
           {cartItems.length > 0 && (
             <>
               <Button className="w-full mt-4">
-                Checkout ($
+                Subtotal ($
                 {cartItems
                   .reduce(
                     (sum: number, item: ProductType) => sum + item.price,
@@ -60,7 +61,6 @@ export default function AsideCart() {
               <ButtonClearCart />
             </>
           )}
-        </div>
       </SheetContent>
     </Sheet>
   )
