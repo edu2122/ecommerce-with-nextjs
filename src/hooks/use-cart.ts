@@ -4,36 +4,34 @@ import { toast } from './use-toast'
 
 import { type ProductType } from '@/types/product'
 
-interface CartItem extends ProductType {
-  quantity: number
-}
-
 interface CartStore {
-  items: CartItem[]
-  addItem: (data: ProductType) => void
+  items: ProductType[]
+  addItem: (item: ProductType) => void
   removeItem: (id: string) => void
   clearCart: () => void
-  increaseQuantity: (id: string) => void
-  decreaseQuantity: (id: string) => void
+  increaseQuantityItem: (id: string) => void
+  decreaseQuantityItem: (id: string) => void
 }
 
 export const useCart = create(
   persist<CartStore>(
     (set, get) => ({
       items: [],
-      addItem: (data: ProductType) => {
+      addItem: (item: ProductType) => {
         const { items } = get()
-        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+        const existingItem = items.find((cartItem) => cartItem.id === item.id)
+        if (existingItem) return
         set({
-          items: [...items, { ...data, quantity: 1 }]
+          items: [...items, { ...item, quantity: 1 }]
         })
-
         toast({
           title: 'Item added to cart'
         })
       },
       removeItem: (id: string) => {
-        set({ items: [...get().items.filter((item) => item.id !== id)] })
+        const { items } = get()
+        const removeItem = items.filter((item) => item.id !== id)
+        set({ items: [...removeItem] })
         toast({
           title: 'Item removed from cart',
           variant: 'destructive'
@@ -48,8 +46,8 @@ export const useCart = create(
           variant: 'destructive'
         })
       },
-      increaseQuantity: (id: string) => {
-        const currentItems = get().items
+      increaseQuantityItem: (id: string) => {
+        const { items: currentItems } = get()
         const item = currentItems.find((item) => item.id === id)
         if (item && item.quantity < item.stock) {
           set({
@@ -64,8 +62,8 @@ export const useCart = create(
           })
         }
       },
-      decreaseQuantity: (id: string) => {
-        const currentItems = get().items
+      decreaseQuantityItem: (id: string) => {
+        const { items: currentItems } = get()
         const item = currentItems.find((item) => item.id === id)
         if (item && item.quantity > 1) {
           set({
@@ -74,6 +72,8 @@ export const useCart = create(
             )
           })
         } else {
+          const { removeItem } = get()
+          removeItem(item?.id ?? '')
           toast({
             title: 'Item removed from cart',
             variant: 'destructive'

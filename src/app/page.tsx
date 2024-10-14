@@ -5,8 +5,8 @@ import { SectionSpecialsOffers } from './section-specials-offers'
 export default async function Home() {
   return (
     <div className="min-h-screen text-gray-800 font-sans">
+      <SectionHero />
       <main className="text-xl">
-        <SectionHero />
         <SectionFeaturedProducts />
         <SectionSpecialsOffers />
       </main>

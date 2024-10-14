@@ -7,4 +7,5 @@ export type ProductType = {
   price: number
   stock: number
   image_url: string
+  quantity: number
 }

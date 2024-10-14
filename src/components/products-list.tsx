@@ -7,7 +7,6 @@ export async function ProductsList() {
   const { getProducts } = await useSupabase()
   const products = await getProducts()
   if (products === null) return
-  console.log(products[0])
   if (products === null) return
   const randomsProducts = products.sort(() => Math.random() - 0.5)
   const productsLimited = randomsProducts.slice(0, 4)

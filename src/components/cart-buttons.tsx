@@ -50,14 +50,14 @@ export function ButtonClearCart() {
 }
 
 export function ButtonIncreaseQuantity({ id }: { id: string }) {
-  const { increaseQuantity } = useCart()
+  const { increaseQuantityItem } = useCart()
   return (
     <Button
       variant="outline"
       size="icon"
       className="w-7 h-7"
       onClick={() => {
-        increaseQuantity(id)
+        increaseQuantityItem(id)
       }}
     >
       <Plus className="h-4 w-4" />
@@ -66,14 +66,14 @@ export function ButtonIncreaseQuantity({ id }: { id: string }) {
 }
 
 export function ButtonDecreaseQuantity({ id }: { id: string }) {
-  const { decreaseQuantity } = useCart()
+  const { decreaseQuantityItem } = useCart()
   return (
     <Button
       variant="outline"
       size="icon"
       className="w-7 h-7"
       onClick={() => {
-        decreaseQuantity(id)
+        decreaseQuantityItem(id)
       }}
     >
       <Minus className="h-4 w-4" />
