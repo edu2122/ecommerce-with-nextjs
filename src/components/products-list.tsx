@@ -1,12 +1,16 @@
 import { ButtonAddToCart } from './cart-buttons'
 import { type ProductType } from '@/types/product'
 import { useSupabase } from '@/hooks/use-supabase'
+import Link from 'next/link'
+
+// const replaceSpacesWithDash = (str: string): string => {
+//   return str.replace(/\s+/g, '-')
+// }
 
 export async function ProductsList() {
   await new Promise((resolve) => setTimeout(resolve, 2000))
   const { getProducts } = await useSupabase()
   const products = await getProducts()
-  if (products === null) return
   if (products === null) return
   const randomsProducts = products.sort(() => Math.random() - 0.5)
   const productsLimited = randomsProducts.slice(0, 4)
@@ -15,7 +19,7 @@ export async function ProductsList() {
       {productsLimited.map((product: ProductType) => {
         const { id, name, price, image_url: imageUrl } = product
         return (
-          <div key={id} className="group w-80">
+          <Link key={id} className="group w-80" href={`/product/${id}`}>
             <div className="shadow-xl sm:rounded-xl  mb-4 rounded-lg overflow-hidden bg-gray-100 dark:bg-black/90 transition duration-500 ease-in-out transform ">
               <img
                 src={imageUrl}
@@ -30,7 +34,7 @@ export async function ProductsList() {
               ${price}
             </p>
             <ButtonAddToCart product={product} />
-          </div>
+          </Link>
         )
       })}
     </div>

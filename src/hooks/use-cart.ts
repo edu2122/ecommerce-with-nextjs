@@ -8,9 +8,9 @@ interface CartStore {
   items: ProductType[]
   addItem: (item: ProductType) => void
   removeItem: (id: string) => void
-  clearCart: () => void
   increaseQuantityItem: (id: string) => void
   decreaseQuantityItem: (id: string) => void
+  clearCart: () => void
 }
 
 export const useCart = create(
