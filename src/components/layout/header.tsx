@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import { Button } from '../components/ui/button'
-import { Search, ShoppingCart, User } from '@/components/icons'
-import { ModeToggle } from '../components/mode-toggle'
-import AsideCart from '@/components/aside-cart'
+import { Button } from '../ui/button'
+import { Search, User } from '@/components/icons/icons'
+import { ModeToggle } from '../dark-mode/mode-toggle'
+import AsideCart from '@/components/cart/aside-cart'
 
 export function Header() {
   return (
@@ -53,7 +53,7 @@ export function Header() {
             <span className="sr-only">Cart</span>
           </Button>
         </Link> */}
-        <AsideCart/>
+        <AsideCart />
         <Button
           variant="ghost"
           size="icon"

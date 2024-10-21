@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { inter } from './ui/fonts'
-import { Footer } from '@/app/footer'
-import { ThemeProvider } from '@/components/theme-provider'
-import { Header } from '@/app/header'
+import { Footer } from '@/components/layout/footer'
+import { ThemeProvider } from '@/components/dark-mode/theme-provider'
+import { Header } from '@/components/layout/header'
 import { Toaster } from '@/components/ui/toaster'
 
 export const metadata: Metadata = {

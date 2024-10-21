@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { Button } from '../components/ui/button'
-import { Instagram, Facebook, Twitter } from '@/components/icons'
+import { Button } from '../ui/button'
+import { Instagram, Facebook, Twitter } from '@/components/icons/icons'
 
 export function Footer() {
   return (

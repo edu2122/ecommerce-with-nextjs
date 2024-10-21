@@ -6,9 +6,9 @@ import {
   SheetTitle,
   SheetTrigger
 } from '@/components/ui/sheet'
-import { Button } from './ui/button'
+import { Button } from '../ui/button'
 import { type ProductType } from '@/types/product'
-import { ShoppingCart } from '@/components/icons'
+import { ShoppingCart } from '@/components/icons/icons'
 import { useCart } from '@/hooks/use-cart'
 import {
   ButtonClearCart,
@@ -41,7 +41,7 @@ export default function AsideCart() {
                 <img
                   src={item.image_url}
                   alt={item.name}
-                  className="rounded size-32"
+                  className="rounded size-16"
                 />
                 <div>
                   <p className="font-medium">{item.name}</p>

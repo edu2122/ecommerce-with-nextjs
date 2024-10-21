@@ -1,8 +1,8 @@
 import { Suspense } from 'react'
-import CartItems from '@/components/cart-items'
-import SectionMightAlsoLike from './section-migth-also-like'
+import CartItems from '@/components/cart/cart-items'
 import { CartItemSkeleton, OrderSummarySkeleton } from '@/components/skeletons'
 import OrderSummary from '@/components/order-summary'
+import { SectionCarousel } from '@/components/sections/section-carousel'
 
 // app/cart/page.tsx
 export default function CartPage() {
@@ -36,7 +36,7 @@ export default function CartPage() {
 
         {/* You Might Also Like Section */}
         <section className="mt-16">
-          <SectionMightAlsoLike />
+          <SectionCarousel sectionTitle="You Might Also Like" />
         </section>
       </main>
     </div>

@@ -1,6 +1,6 @@
 'use client'
 import { Button } from './ui/button'
-import { GithubIcon, LogOut } from './icons'
+import { GithubIcon, LogOut } from './icons/icons'
 import { createClient } from '@/utils/supabase/client'
 import { type Session } from '@supabase/supabase-js'
 import { useRouter } from 'next/navigation'

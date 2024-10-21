@@ -1,9 +1,9 @@
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
-export function SectionHero() {
+export function Hero() {
   return (
-    <section className="bg-white dark:bg-black/80 py-20 px-4">
+    <section id='' className="bg-white dark:bg-black/80 py-20 px-4">
       <div className="container mx-auto text-center">
         <h1 className="text-4xl md:text-5xl text-black font-bold mb-6 dark:text-white/90">
           Welcome to Minimal Elegance

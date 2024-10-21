@@ -49,31 +49,33 @@ export function OrderSummarySkeleton() {
   )
 }
 
-export function ProductsStoreSkeleton() {
+export function CardProductSkeleton() {
   return (
     <Card className="bg-gray-200 dark:bg-white/5">
       <CardContent className="space-y-4 p-6">
         <div>
           <Skeleton className="w-full h-52" />
         </div>
-        <div className=''>
-          <Skeleton className='w-full h-3'/>
+        <div className="">
+          <Skeleton className="w-full h-4" />
         </div>
       </CardContent>
-      <CardFooter className="flex flex-col space-y-2">
-        <Skeleton className="h-10 w-full" />
+      <CardFooter className="space-y-2">
+        <Skeleton className="h-4 w-20" />
       </CardFooter>
     </Card>
   )
 }
 
-export function RecommendedProductSkeleton() {
+export function CarouselProductSkeleton() {
   return (
-    <div className="flex-none w-64">
+    <div className="flex flex-col gap-x-4 w-full">
       <Skeleton className="aspect-w-1 aspect-h-1 mb-4 rounded-lg" />
-      <Skeleton className="h-4 w-3/4 mb-2" />
-      <Skeleton className="h-4 w-1/2 mb-2" />
-      <Skeleton className="h-10 w-full" />
+      <Skeleton className="h-[225px] w-[270px] rounded-xl" />
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-[270px] mt-2" />
+        <Skeleton className="h-4 w-[100px]" />
+      </div>
     </div>
   )
 }

@@ -1,17 +1,13 @@
 import { ChevronLeft, Plus, Minus } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
 import { useSupabase } from '@/hooks/use-supabase'
-import { type ProductType } from '@/types/product'
 import Link from 'next/link'
+import { CarouselProducts } from '@/components/products/carousel-products'
 
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = params
-  const { getProductById, getProducts } = await useSupabase()
+  const { getProductById } = await useSupabase()
   const product = await getProductById(id)
-  const products = await getProducts()
-  const randomsProducts = products?.sort(() => Math.random() - 0.5)
-  const productsLimited = randomsProducts?.slice(0, 4)
   return (
     <div className="min-h-screen bg-white dark:bg-black text-gray-800 dark:text-white font-sans transition-colors duration-300">
       <main className="container mx-auto px-4 py-8">
@@ -57,28 +53,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
         {/* Related Products */}
         <section className="mt-16">
-          <h2 className="text-2xl font-semibold mb-4">You Might Also Like</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {productsLimited?.map((product: ProductType) => {
-              const { id, image_url, name } = product
-              return (
-                <Card key={id}>
-                  <CardContent className="p-4">
-                    <div className="aspect-square relative overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 mb-4">
-                      <img
-                        src={image_url}
-                        alt={`Related Product ${image_url}`}
-                      />
-                    </div>
-                    <h3 className="font-semibold">Related Product {name}</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
-                      $99.99
-                    </p>
-                  </CardContent>
-                </Card>
-              )
-            })}
-          </div>
+          <CarouselProducts />
         </section>
       </main>
     </div>

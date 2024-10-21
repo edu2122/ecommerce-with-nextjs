@@ -1,5 +1,5 @@
 import { createClient } from '@/utils/supabase/client'
-import { ButtonAddToCart } from './cart-buttons'
+import { ButtonAddToCart } from '@/components/cart/cart-buttons'
 import { type ProductType } from '@/types/product'
 
 export default async function RecommendedProducts() {

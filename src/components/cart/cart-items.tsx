@@ -1,7 +1,7 @@
 'use client'
 import { type ProductType } from '@/types/product'
 import { ButtonDecreaseQuantity, ButtonIncreaseQuantity } from './cart-buttons'
-import { Card, CardContent } from './ui/card'
+import { Card, CardContent } from '../ui/card'
 import { createClient } from '@/utils/supabase/client'
 import { useCart } from '@/hooks/use-cart'
 

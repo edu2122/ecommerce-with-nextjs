@@ -1,14 +1,21 @@
-import ProductsStore from '@/components/products-store'
-import AsideCart from '@/components/aside-cart'
+import ProductsStore from '@/components/products/products-store'
+import AsideCart from '@/components/cart/aside-cart'
 import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Slider } from '@/components/ui/slider'
 import { Suspense } from 'react'
-import { ProductsStoreSkeleton } from '@/components/skeletons'
+import { CardProductSkeleton } from '@/components/skeletons'
+import { useSupabase } from '@/hooks/use-supabase'
 
 const categories = ['Clothing', 'Shoes', 'Accessories', 'Home', 'Beauty']
 
-export default function StorePage() {
+export default async function StorePage() {
+  const { getProducts } = await useSupabase()
+  const products = await getProducts()
+  if (products === null) return
+  const randomsProducts = products.sort(() => Math.random() - 0.5)
+  const productsLimited = randomsProducts.slice(0, 7)
+  const lengthProducts = productsLimited.length
   return (
     <div className="min-h-screen bg-white dark:bg-black text-gray-800 dark:text-white font-sans transition-colors duration-300">
       <main className="container mx-auto px-4 py-8">
@@ -52,10 +59,9 @@ export default function StorePage() {
               <Suspense
                 fallback={
                   <>
-                    <ProductsStoreSkeleton />
-                    <ProductsStoreSkeleton />
-                    <ProductsStoreSkeleton />
-                    <ProductsStoreSkeleton />
+                    {Array.from({ length: lengthProducts }).map((_, index) => (
+                      <CardProductSkeleton key={index} />
+                    ))}
                   </>
                 }
               >
