@@ -1,5 +1,4 @@
-import ProductsStore from '@/components/products/products-store'
-import AsideCart from '@/components/cart/aside-cart'
+import ProductsStore from '@/components/products/grid-store'
 import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Slider } from '@/components/ui/slider'
@@ -13,9 +12,7 @@ export default async function StorePage() {
   const { getProducts } = await useSupabase()
   const products = await getProducts()
   if (products === null) return
-  const randomsProducts = products.sort(() => Math.random() - 0.5)
-  const productsLimited = randomsProducts.slice(0, 7)
-  const lengthProducts = productsLimited.length
+  const lengthProducts = products.length
   return (
     <div className="min-h-screen bg-white dark:bg-black text-gray-800 dark:text-white font-sans transition-colors duration-300">
       <main className="container mx-auto px-4 py-8">
@@ -26,7 +23,6 @@ export default async function StorePage() {
             placeholder="Search products..."
             className="w-full"
           />
-          <AsideCart />
         </div>
 
         <div className="flex flex-col md:flex-row gap-8">

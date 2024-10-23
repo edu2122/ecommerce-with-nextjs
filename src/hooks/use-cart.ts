@@ -13,6 +13,18 @@ interface CartStore {
   clearCart: () => void
 }
 
+interface AsideCartStore {
+  isOpen: boolean
+  openCart: () => void
+  closeCart: () => void
+}
+
+export const useAsideCart = create<AsideCartStore>((set) => ({
+  isOpen: false,
+  openCart: () => { set({ isOpen: true }) },
+  closeCart: () => { set({ isOpen: false }) }
+}))
+
 export const useCart = create(
   persist<CartStore>(
     (set, get) => ({

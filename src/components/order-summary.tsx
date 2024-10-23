@@ -3,7 +3,6 @@ import { Button } from './ui/button'
 import { PaypalIcon, CreditCardIcon } from '@/components/icons/icons'
 
 export default async function OrderSummary() {
-  await new Promise((resolve) => setTimeout(resolve, 2000))
   return (
     <Card>
       <CardHeader>

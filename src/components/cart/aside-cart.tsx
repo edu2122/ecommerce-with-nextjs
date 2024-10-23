@@ -9,7 +9,7 @@ import {
 import { Button } from '../ui/button'
 import { type ProductType } from '@/types/product'
 import { ShoppingCart } from '@/components/icons/icons'
-import { useCart } from '@/hooks/use-cart'
+import { useAsideCart, useCart } from '@/hooks/use-cart'
 import {
   ButtonClearCart,
   ButtonRemoveFromCart,
@@ -19,11 +19,22 @@ import {
 
 export default function AsideCart() {
   const { items: cartItems } = useCart()
+  const { isOpen, closeCart, openCart } = useAsideCart()
 
   return (
-    <Sheet>
+    <Sheet
+      open={isOpen}
+      onOpenChange={(isOpen) => {
+        isOpen ? openCart() : closeCart()
+      }}
+    >
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon">
+        <Button
+          className="text-slate-800 dark:text-white"
+          onClick={openCart}
+          variant="ghost"
+          size="icon"
+        >
           <ShoppingCart className="h-5 w-5" />
         </Button>
       </SheetTrigger>

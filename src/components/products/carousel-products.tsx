@@ -1,21 +1,25 @@
 import { type ProductType } from '@/types/product'
 import { useSupabase } from '@/hooks/use-supabase'
 import Link from 'next/link'
+import { getRandomLimitedProducts } from '@/app/lib/utils'
 
 export async function CarouselProducts() {
-  await new Promise((resolve) => setTimeout(resolve, 2000))
   const { getProducts } = await useSupabase()
   const products = await getProducts()
   if (products === null) return
-  const randomsProducts = products.sort(() => Math.random() - 0.5)
-  const productsLimited = randomsProducts.slice(0, 7)
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+  const productsLimited = getRandomLimitedProducts(products, 7)
 
   return (
     <div className="flex overflow-x-auto space-x-6 pb-4">
       {productsLimited.map((product: ProductType) => {
         const { id, name, price, image_url: imageUrl } = product
         return (
-          <Link key={id} className="flex-none w-64 group" href={`/product/${id}`}>
+          <Link
+            key={id}
+            className="flex-none w-64 group"
+            href={`/product/${id}`}
+          >
             <div className="mb-4 rounded-lg overflow-hidden bg-gray-100 dark:bg-white/5 transition duration-500 ease-in-out transform shadow-xl">
               <img
                 src={imageUrl}

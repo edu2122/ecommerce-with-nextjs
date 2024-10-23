@@ -1,18 +1,26 @@
 'use client'
-import { useCart } from '@/hooks/use-cart'
+import { useAsideCart, useCart } from '@/hooks/use-cart'
 import { Button } from '../ui/button'
 import { type ProductType } from '@/types/product'
 import { Minus, Plus, XIcon } from '../icons/icons'
 
-export function ButtonAddToCart({ product }: { product: ProductType }) {
+export function ButtonAddToCart({
+  product,
+  className
+}: {
+  product: ProductType
+  className?: string
+}) {
   const { addItem } = useCart()
+  const { openCart } = useAsideCart()
   return (
     <Button
       onClick={() => {
         addItem(product)
+        openCart()
       }}
       variant="outline"
-      className="mt-2 w-full dark:text-white"
+      className={`${className} mt-2 w-full dark:text-white`}
     >
       Add to Cart
     </Button>

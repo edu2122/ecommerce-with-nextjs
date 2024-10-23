@@ -2,7 +2,7 @@
 import { type ProductType } from '@/types/product'
 import { ButtonDecreaseQuantity, ButtonIncreaseQuantity } from './cart-buttons'
 import { Card, CardContent } from '../ui/card'
-import { createClient } from '@/utils/supabase/client'
+// import { createClient } from '@/utils/supabase/client'
 import { useCart } from '@/hooks/use-cart'
 
 export default function CartItems() {
@@ -47,8 +47,7 @@ export default function CartItems() {
       })} */}
       {items.map((item: ProductType) => {
         const { id: idOrder } = item
-        const productPrice = item.price
-        const productQuantity = item.quantity
+        const { price: productPrice, quantity: productQuantity } = item
         const totalPrice = productPrice * productQuantity
         return (
           <Card key={idOrder}>

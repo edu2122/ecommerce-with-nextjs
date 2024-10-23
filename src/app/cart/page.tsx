@@ -35,9 +35,8 @@ export default function CartPage() {
         </div>
 
         {/* You Might Also Like Section */}
-        <section className="mt-16">
-          <SectionCarousel sectionTitle="You Might Also Like" />
-        </section>
+
+        <SectionCarousel className="mt-16" sectionTitle="You Might Also Like" />
       </main>
     </div>
   )

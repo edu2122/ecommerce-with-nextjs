@@ -1,15 +1,11 @@
-import { createClient } from '@/utils/supabase/client'
 import { Card, CardContent } from '@/components/ui/card'
+import { useSupabase } from '@/hooks/use-supabase'
 import { type ProductType } from '@/types/product'
 import Link from 'next/link'
 
-export default async function ProductsStore() {
-  await new Promise((resolve) => setTimeout(resolve, 2000))
-  const supabase = createClient()
-  const { data: products } = await supabase
-    .from('products')
-    .select('*')
-    .order('id', { ascending: true })
+export default async function GridStore() {
+  const { getProducts } = await useSupabase()
+  const products = await getProducts()
   if (products === null) return
   const randomsProducts = products.sort(() => Math.random() - 0.5)
   return (
