@@ -21,8 +21,12 @@ interface AsideCartStore {
 
 export const useAsideCart = create<AsideCartStore>((set) => ({
   isOpen: false,
-  openCart: () => { set({ isOpen: true }) },
-  closeCart: () => { set({ isOpen: false }) }
+  openCart: () => {
+    set({ isOpen: true })
+  },
+  closeCart: () => {
+    set({ isOpen: false })
+  }
 }))
 
 export const useCart = create(
@@ -32,13 +36,32 @@ export const useCart = create(
       addItem: (item: ProductType) => {
         const { items } = get()
         const existingItem = items.find((cartItem) => cartItem.id === item.id)
-        if (existingItem) return
-        set({
-          items: [...items, { ...item, quantity: 1 }]
-        })
-        toast({
-          title: 'Item added to cart'
-        })
+        if (existingItem) {
+          if (existingItem.quantity < existingItem.stock) {
+            set({
+              items: items.map((cartItem) =>
+                cartItem.id === item.id
+                  ? { ...cartItem, quantity: cartItem.quantity + 1 }
+                  : cartItem
+              )
+            })
+            toast({
+              title: 'Item added to cart'
+            })
+          } else {
+            toast({
+              title: 'No more stock available',
+              variant: 'destructive'
+            })
+          }
+        } else {
+          set({
+            items: [...items, { ...item, quantity: 1 }]
+          })
+          toast({
+            title: 'Item added to cart'
+          })
+        }
       },
       removeItem: (id: string) => {
         const { items } = get()
