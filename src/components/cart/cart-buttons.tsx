@@ -20,7 +20,7 @@ export function ButtonAddToCart({
         openCart()
       }}
       variant="outline"
-      className={`${className} mt-2 w-full dark:text-white`}
+      className={`${className} dark:text-white`}
     >
       Add to Cart
     </Button>
@@ -61,9 +61,9 @@ export function ButtonIncreaseQuantity({ id }: { id: string }) {
   const { increaseQuantityItem } = useCart()
   return (
     <Button
-      variant="outline"
+      variant="ghost"
       size="icon"
-      className="w-7 h-7"
+      className="ease flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80 ml-auto"
       onClick={() => {
         increaseQuantityItem(id)
       }}
@@ -77,9 +77,9 @@ export function ButtonDecreaseQuantity({ id }: { id: string }) {
   const { decreaseQuantityItem } = useCart()
   return (
     <Button
-      variant="outline"
+      variant="ghost"
       size="icon"
-      className="w-7 h-7"
+      className="h-full ease flex min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80 ml-auto"
       onClick={() => {
         decreaseQuantityItem(id)
       }}

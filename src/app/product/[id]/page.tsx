@@ -1,20 +1,11 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useSupabase } from '@/hooks/use-supabase'
 import { SectionCarousel } from '@/components/sections/section-carousel'
 import { ButtonAddToCart } from '@/components/cart/cart-buttons'
-import { Button } from '@/components/ui/button'
+
 const colors = [
   { name: 'Black', class: 'bg-black', selectedClass: 'ring-gray-400' },
   { name: 'White', class: 'bg-white', selectedClass: 'ring-gray-400' },
   { name: 'Blue', class: 'bg-blue-500', selectedClass: 'ring-gray-400' }
-]
-
-const sizes = [
-  { name: 'XS', inStock: true },
-  { name: 'S', inStock: true },
-  { name: 'M', inStock: true },
-  { name: 'L', inStock: true },
-  { name: 'XL', inStock: true }
 ]
 
 export default async function ProductPage({
@@ -34,20 +25,12 @@ export default async function ProductPage({
             <div className="lg:grid lg:grid-cols-2 lg:gap-x-10 lg:items-center ">
               {/* Image gallery */}
               <div className="flex flex-col items-center">
-                <div className="overflow-hidden rounded-lg max-w-[500px]">
+                <div className="overflow-hidden rounded-lg max-w-[500px] hover:scale-110 transition duration-500">
                   <img
                     src={imageUrl}
                     alt={name}
                     className="size-[500px] object-cover object-center"
                   />
-                </div>
-                <div className="flex justify-center mt-4 space-x-2">
-                  <Button className="rounded-full bg-transparent border-white hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                    <ChevronLeft className="h-5 w-5" />
-                  </Button>
-                  <Button className="rounded-full  hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                    <ChevronRight className="h-5 w-5" />
-                  </Button>
                 </div>
               </div>
 
@@ -82,7 +65,7 @@ export default async function ProductPage({
                 </div>
 
                 {/* Size picker */}
-                <div className="mt-6">
+                {/* <div className="mt-6">
                   <div className="flex items-center justify-between">
                     <h3 className="text-sm font-medium">Size</h3>
                     <a
@@ -104,10 +87,10 @@ export default async function ProductPage({
                       ))}
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 <ButtonAddToCart
-                  className="mt-8 w-full bg-blue-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-blue-500"
+                  className="mt-8 w-full rounded-full bg-blue-600 border border-transparent py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-blue-500"
                   product={product}
                 />
 

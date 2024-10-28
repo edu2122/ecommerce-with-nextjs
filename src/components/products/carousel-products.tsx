@@ -17,14 +17,14 @@ export async function CarouselProducts() {
         return (
           <Link
             key={id}
-            className="flex-none w-64 group"
+            className="flex-none w-64 group border-gray-400"
             href={`/product/${id}`}
           >
-            <div className="mb-4 rounded-lg overflow-hidden bg-gray-100 dark:bg-white/5 transition duration-500 ease-in-out transform shadow-xl">
+            <div className="mb-4 rounded-lg overflow-hidden border transition duration-500 ease-in-out transform shadow-xl">
               <img
                 src={imageUrl}
                 alt={`Offer product ${name}`}
-                className="object-cover object-top w-full h-72 group-hover:opacity-85 dark:group-hover:opacity-75 md:scale-110 md:group-hover:scale-125 transition duration-500"
+                className="object-cover object-top w-full h-72  group-hover:opacity-85 dark:group-hover:opacity-75 md:scale-105 md:group-hover:scale-110 transition duration-500"
               />
               {/* <div className="absolute top-2 right-2 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 px-2 py-1 rounded-full text-sm font-medium">
               20% OFF
