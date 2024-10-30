@@ -33,11 +33,12 @@ export function ButtonRemoveFromCart({ id }: { id: string }) {
     <Button
       variant="ghost"
       size="sm"
+      className='size-[24px] rounded-full bg-neutral-500 p-0'
       onClick={() => {
         removeItem(id)
       }}
     >
-      <XIcon className="h-4 w-4" />
+      <XIcon className="size-[12px]" />
     </Button>
   )
 }

@@ -4,7 +4,7 @@ import { Instagram, Facebook, Twitter } from '@/components/icons/icons'
 
 export function Footer() {
   return (
-    <footer className="bg-white dark:bg-black py-8 px-4">
+    <footer className="bg-white dark:bg-black py-8 px-4 bottom-0">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="mb-4 md:mb-0">
           <Link

@@ -16,9 +16,11 @@ import {
   ButtonIncreaseQuantity,
   ButtonDecreaseQuantity
 } from './cart-buttons'
+import { checkoutStripe } from '@/app/lib/actions'
 
 export default function AsideCart() {
   const { items: cartItems } = useCart()
+
   const { isOpen, closeCart, openCart } = useAsideCart()
 
   return (
@@ -69,7 +71,7 @@ export default function AsideCart() {
                 </p>
                 <div className="ml-auto flex h-9 flex-row items-center rounded-full border border-neutral-200 dark:border-neutral-700">
                   <ButtonDecreaseQuantity id={item.id} />
-                  <span className='text-center w-6'>{item.quantity}</span>
+                  <span className="text-center w-6">{item.quantity}</span>
                   <ButtonIncreaseQuantity id={item.id} />
                 </div>
               </div>
@@ -79,7 +81,7 @@ export default function AsideCart() {
         </div>
         {cartItems.length > 0 && (
           <>
-            <Button className="w-full mt-4">
+            <Button className="w-full mt-4" onClick={async () => { await checkoutStripe(cartItems) }}>
               Subtotal ($
               {cartItems
                 .reduce((sum: number, item: ProductType) => sum + item.price, 0)
